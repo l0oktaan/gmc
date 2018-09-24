@@ -6,7 +6,21 @@
 
 <ion-content padding class="bg-style card-background-page">
 
-<h3>Study music</h3>
+<ion-grid>
+  <ion-row>
+    <ion-col><h3>Study music</h3></ion-col>
+    <ion-col>
+      <ion-select interface="popover" class="selector" placeholder="CATEGORIES" id="category"  [(ngModel)]="genre" text-center>
+          <ion-option text-center value="all">All</ion-option>
+        <ion-option text-center value="piano">Piano</ion-option>
+        <ion-option text-center value="drum">Drum</ion-option>
+        <ion-option text-center value="saxophone">Saxophone</ion-option>
+        <ion-option text-center value="vocal">Vocal</ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 
 <ion-slides pager="true">
   <ion-slide>
@@ -39,7 +53,20 @@
   </ion-slide>
 </ion-slides>
 
-<h3>Popular clip</h3>
+<ion-grid>
+  <ion-row>
+    <ion-col><h3>Popular clip</h3></ion-col>
+    <ion-col>
+      <ion-select interface="popover" class="selector" placeholder="CATEGORIES" id="category2"  [(ngModel)]="genre2" text-center>
+        <ion-option text-center value="all">All</ion-option>
+        <ion-option text-center value="piano">Piano</ion-option>
+        <ion-option text-center value="drum">Drum</ion-option>
+        <ion-option text-center value="saxophone">Saxophone</ion-option>
+        <ion-option text-center value="vocal">Vocal</ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 <ion-slides pager="true">
     <ion-slide>

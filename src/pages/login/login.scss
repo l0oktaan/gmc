@@ -1,0 +1,47 @@
+page-login {
+    .scroll-content {
+        overflow-y: hidden !important;
+    }
+    .scroll-content{
+        padding-bottom: 0px!important;
+    }
+    .txt{
+        border: 1px solid #dddddd!important;
+        border-width: 1px!important;
+        border-color: #862455!important;
+        border-radius: 5px!important;
+        margin: 10px 0 10px 0!important;
+        text-align: center!important;
+        background-color: #ffffff!important;
+    }
+    .btnlogin{
+        background-color: #ec4599!important;
+        border-radius: 20px!important;
+        font-size: 18px!important;
+    }
+    .btnfacebook{
+        background-color: #3B5998!important;
+        border-radius: 20px!important;
+        font-size: 18px!important;
+    }
+    .lblor{
+        color: #504f4f!important;
+        margin-top: 35px;
+    }
+    .bg{
+        background-image: none!important;
+        background: linear-gradient(to bottom, rgba(255,133,206,1) 0%, rgba(255,203,173,1) 51%, rgba(255,255,255,1) 100%)!important;
+    }
+    .zonelogo{
+        margin-bottom: 30px;
+    }
+ion-item:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  ion-item:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+}

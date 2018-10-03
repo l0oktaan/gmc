@@ -4,6 +4,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { HttpClient } from '@angular/common/http';
 import { SignupPage } from '../signup/signup';
 import { StatusBar } from '@ionic-native/status-bar';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -74,5 +75,8 @@ export class LoginPage {
     this.fb.logout();
     this.login = false;
     this.user.img = "";    
+  }
+  signup(){
+    this.navCtrl.push(SignupPage);
   }
 }

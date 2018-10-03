@@ -1,9 +1,13 @@
-page-login {
-    .scroll-content {
+
+page-regis{
+
+.scroll-content {
         overflow-y: hidden !important;
+        //position : initial !important;
     }
     .scroll-content{
-        padding-bottom: 50px!important;
+        padding-bottom: 180px!important;
+        
     }
     .txt{
         border: 1px solid #dddddd!important;
@@ -14,7 +18,7 @@ page-login {
         text-align: center!important;
         background-color: #ffffff!important;
     }
-    .btnlogin{
+    .btnregis{
         background-color: #ec4599!important;
         border-radius: 20px!important;
         font-size: 16px!important;
@@ -47,4 +51,6 @@ ion-item:first-child {
     border-bottom-right-radius: 5px;
   }
   
+  
 }
+

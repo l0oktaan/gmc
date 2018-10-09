@@ -20,18 +20,22 @@
       <p text-center ion-text><strong>ANGRY TEACHER</strong></p>
     </div>
 
-    <form class="list-form">
+    <form class="list-form" [formGroup]="signupForm">
       <ion-item class="txt">
-        <ion-input type="text" placeholder="Username" ng-model="userdata.user"></ion-input>
+        <ion-input type="text" placeholder="Username" [(ngModel)]="userdata.user" name="user" formControlName="user"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="!signupForm.controls.user.valid  && (signupForm.controls.user.dirty || tosubmit)">
+        <p>invalid username (5-15 characters)</p>
+      </ion-item>
+
+      <ion-item class="txt">
+        <ion-input type="text" placeholder="Email" [(ngModel)]="userdata.email" name="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item class="txt">
-        <ion-input type="text" placeholder="Email" ng-model="userdata.email"></ion-input>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="userdata.password" name="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item class="txt">
-        <ion-input type="password" placeholder="Password" ng-model="userdata.password"></ion-input>
-      </ion-item>
-      <ion-item class="txt">
-        <ion-input type="password" placeholder="RePassword" ng-model="userdata.repassword"></ion-input>
+        <ion-input type="password" placeholder="RePassword" [(ngModel)]="userdata.repassword" name="repassword" formControlName="repassword"></ion-input>
       </ion-item>
     </form>
     

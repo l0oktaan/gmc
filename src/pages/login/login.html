@@ -37,7 +37,7 @@
         LOG IN
       </button>
       <p text-center ion-text color="dark" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p>
-      <p text-center ion-text class="lblor"><strong>or</strong></p>
+      <p text-center ion-text class="lblor" (click)="checklogin()"><strong>or</strong></p>
       <button ion-button block tappable class="btnfacebook" style="text-transform: none;" (click)="loginFb()" *ngIf="!login">
         <i item-left>
           <ion-icon name="logo-facebook"></ion-icon>

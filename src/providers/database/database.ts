@@ -11,22 +11,32 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 export class DatabaseProvider {
   private db: SQLiteObject;
   private isOpen : boolean;
+  items: Array<Object>;
   constructor(
     public http: HttpClient,
     public storage: SQLite
   ) {
+    
     if (!this.isOpen){
-      this.storage = new SQLite();
-      this.storage.create({name: "data.db", location: "default"}).then((db:SQLiteObject)=>{
+      
+     //this.storage = new SQLite();     
+      this.storage.create({
+        name: "data1.db", 
+        location: "default"
+      }).then((db:SQLiteObject)=>{
+        
+        db.executeSql('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,email TEXT,password TEXT)', [])
+          .then(() => console.log('Executed SQL'))
+          .catch(e => console.log(e));
         this.db = db;
-        db.executeSql("CREATE TABLE IF NOT EXITS users (id INIEGER PRIMARY KEY AUTOINCREMENT,username TEXT,email TEXT,password TEXT)",[]);
         this.isOpen = true;
       }).catch((error)=>{
         console.log(error);
       })
     }
   }
-  CreateUser(userdata:any){
+  CreateUser(userdata){
+    console.log(userdata);
     return new Promise ((resolve, reject)=>{
       let sql = "INSERT INTO users (username,email,password) VALUES (?, ?, ?)";
       this.db.executeSql(sql,[userdata.user,userdata.email,userdata.password]).then((data)=>{
@@ -35,5 +45,26 @@ export class DatabaseProvider {
         reject(error);
       });
     });
+    
+  }
+  CheckUser(){
+    
+      let sql = "SELECT * FROM users";
+      this.db.executeSql(sql,[])
+        .then((data) => {
+          this.items = [];
+          if (data.rows.length > 0) {
+            for (var i = 0; i < data.rows.length; i++) {
+              this.items.push(data.rows.item(i));
+            }
+            console.log(this.items);
+          }
+        })
+        .catch((error)=>{          
+            console.log(error);          
+        })
+    
+
+    
   }
 }

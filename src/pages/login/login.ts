@@ -4,7 +4,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { HttpClient } from '@angular/common/http';
 import { SignupPage } from '../signup/signup';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { DatabaseProvider } from '../../providers/database/database'
 /**
  * Generated class for the LoginPage page.
  *
@@ -18,14 +18,15 @@ import { StatusBar } from '@ionic-native/status-bar';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  user:any = {};
+  user:any = {};  
   login:boolean = false;
   userdata:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private fb: Facebook,
     private http: HttpClient,
-    private statusBar: StatusBar) {
+    private statusBar: StatusBar,
+    private database: DatabaseProvider) {
   }
   
   ionViewDidLoad() {
@@ -78,5 +79,8 @@ export class LoginPage {
   }
   signup(){
     this.navCtrl.push(SignupPage);
+  }
+  checklogin(){
+    this.database.CheckUser();
   }
 }

@@ -18,22 +18,22 @@
       <div class="logo"></div>            
       <p text-center ion-text color="light"><strong>ANGRY TEACHER</strong></p>
     </div>
-
+    <div *ngIf="!login">
     <!-- Login form -->
     <form class="list-form">
       <ion-item class="txt">        
-        <ion-input type="text" placeholder="Email or Phone No."></ion-input>
+        <ion-input type="text" placeholder="Email or Phone No." [(ngModel)]="loginname" name="loginname"></ion-input>
       </ion-item>
 
       <ion-item class="txt">        
-        <ion-input type="password" placeholder="Password"></ion-input>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="password" name="password"></ion-input>
       </ion-item>
     </form>
 
     
 
     
-      <button ion-button icon-start block tappable class="btnlogin" (click)="login()">        
+      <button ion-button icon-start block tappable class="btnlogin" (click)="tologin()">        
         LOG IN
       </button>
       <p text-center ion-text color="dark" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p>
@@ -46,12 +46,13 @@
           <p>Facebook</p>
         </ion-label>
       </button>
+      
       <!-- Other links -->
       <div text-center margin-top>
         <span ion-text color="dark" tappable (click)="signup()"><strong>SIGN UP</strong></span>
       </div>
 
-      
+      </div>
 
     
 
@@ -59,7 +60,7 @@
 
 
     
-
+      <button ion-button block (click)="tologout()" *ngIf="login">Logout</button>
   </div>
-  <button ion-button block (click)="logoutFb()" *ngIf="login">Logout</button>
+  
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 /**
  * Generated class for the RegisPage page.
  *
@@ -16,11 +17,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisPage {
   userdata:any = {
-    user: "",    
+    phone: "",    
     email : "",    
     password : "",
     repassword: ""
   };
+  userIsBlur:boolean = false;
   tosubmit:boolean;
   signupForm: FormGroup;
 
@@ -30,10 +32,9 @@ export class RegisPage {
     public formBuilder: FormBuilder) {
 
       this.signupForm = formBuilder.group({
-        user: ['', Validators.compose([          
-          Validators.maxLength(15),
-          Validators.minLength(5),
-          Validators.pattern('^[a-zA-Z0-9]+$'),
+        phone: ['', Validators.compose([         
+          Validators.minLength(10),
+          Validators.pattern('^[0-9]{10}$'),
           Validators.required
         ])],
         email: ['', Validators.compose([          
@@ -55,8 +56,8 @@ export class RegisPage {
       });
       this.tosubmit = false;
   }
-  get user() {
-    return this.signupForm.get('user');
+  get phone() {
+    return this.signupForm.get('phone');
   }
   get password() {
     return this.signupForm.get('password');
@@ -66,7 +67,10 @@ export class RegisPage {
   }
   get email() {
     return this.signupForm.get('email');
-  }      
+  }
+  userBlur(){
+    this.userIsBlur = true;
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisPage');
   }

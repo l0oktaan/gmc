@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { SQLite } from '@ionic-native/sqlite';
+
 import { MyApp } from './app.component';
 import { Facebook} from '@ionic-native/facebook';
 import { AboutPage } from '../pages/about/about';
@@ -67,7 +68,8 @@ IonicModule.forRoot(MyApp, {
     Facebook,
     SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DatabaseProvider
+    DatabaseProvider,
+    
   ]
 })
 

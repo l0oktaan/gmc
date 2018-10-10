@@ -22,9 +22,9 @@
 
     <form class="list-form" [formGroup]="signupForm">
       <ion-item class="txt">
-        <ion-input type="text" placeholder="Username" [(ngModel)]="userdata.user" name="user" formControlName="user"></ion-input>
+        <ion-input type="text" placeholder="Username" [(ngModel)]="userdata.phone" name="phone" formControlName="phone" (ionBlur)="userBlur()"></ion-input>
       </ion-item>
-      <ion-item no-lines *ngIf="!signupForm.controls.user.valid  && (signupForm.controls.user.dirty || tosubmit)">
+      <ion-item no-lines *ngIf="!signupForm.controls.phone.valid  && (signupForm.controls.phone.dirty)">
         <p>invalid username (5-15 characters)</p>
       </ion-item>
 
